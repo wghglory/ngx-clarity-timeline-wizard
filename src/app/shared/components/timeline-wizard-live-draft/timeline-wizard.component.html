@@ -1,0 +1,22 @@
+<div class="h-[7rem]">
+  <ng-content select="clr-timeline"></ng-content>
+</div>
+
+<div class="p-6 pt-2">
+  <ng-content select="app-timeline-content"></ng-content>
+
+  <div class="py-9">
+    <button class="btn btn-outline" [disabled]="isFirstStep()" (click)="previousStep()">
+      {{ 'PREVIOUS' }}
+    </button>
+    <button
+      class="btn"
+      [ngClass]="isLastStep() ? 'btn-success' : 'btn-primary'"
+      [clrLoading]="(next$ | async)?.loading === true"
+      [disabled]="currentStepFormInvalid"
+      (click)="nextStep()"
+    >
+      {{ isLastStep() ? 'CONFIRM' : 'NEXT' }}
+    </button>
+  </div>
+</div>

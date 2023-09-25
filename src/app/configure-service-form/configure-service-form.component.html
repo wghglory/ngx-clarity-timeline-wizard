@@ -1,0 +1,57 @@
+<form clrForm [formGroup]="form">
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'S3_ENDPOINT' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.s3Endpoint.controls.url" />
+    <clr-control-helper class="w-72">{{ 'S3_ENDPOINT_DESC' }}</clr-control-helper>
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'REGION' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.s3Endpoint.controls.region" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'CPU' }}</label>
+    <input class="w-72" clrInput type="number" [formControl]="form.controls.resources.controls.limits.controls.cpu" />
+    <clr-control-helper>{{ 'CPU_DESC' }}</clr-control-helper>
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'MEMORY' }}</label>
+    <input class="w-72" clrInput type="number" [formControl]="form.controls.resources.controls.limits.controls.memory" />
+    <clr-control-helper>{{ 'MEMORY_DESC' }}</clr-control-helper>
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'REPLICAS' }}</label>
+    <input class="w-72" clrInput type="number" [formControl]="form.controls.s3Replicas" />
+    <clr-control-helper>{{ 'setup.replicasDesc' }}</clr-control-helper>
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-radio-container>
+    <label class="clr-required-mark">{{ 'TLS_CERTIFICATE' }}</label>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="tlsSource" value="SELFSIGNED" [formControl]="form.controls.tls.controls.tlsSource" />
+      <label>{{ 'CREATE_SELF_SIGNED_CERT' }}</label>
+    </clr-radio-wrapper>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="tlsSource" value="ISSUER" [formControl]="form.controls.tls.controls.tlsSource" />
+      <label>{{ 'CREATE_BY_CERT_ISSUER' }}</label>
+    </clr-radio-wrapper>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="tlsSource" value="IMPORT" [formControl]="form.controls.tls.controls.tlsSource" />
+      <label>{{ 'IMPORT_CERTIFICATE' }}</label>
+    </clr-radio-wrapper>
+    <clr-control-helper>{{ 'TLS_CERTIFICATE_DESC' }}</clr-control-helper>
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-radio-container>
+
+  <clr-input-container *ngIf="form.controls.tls.controls.tlsCertChain">
+    <label class="clr-required-mark">{{ 'CERTIFICATE' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.tls.controls.tlsCertChain" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+</form>

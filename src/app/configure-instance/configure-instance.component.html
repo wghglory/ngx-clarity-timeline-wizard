@@ -1,0 +1,5 @@
+<div class="content-area">
+  <h2>{{ 'CONFIGURE_DEPLOYMENT' }}</h2>
+
+  <app-timeline-wizard [live]="false" [timelineSteps]="timelineSteps" (finished)="onFinish($event)" />
+</div>

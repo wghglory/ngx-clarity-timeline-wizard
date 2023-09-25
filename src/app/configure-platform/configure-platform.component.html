@@ -1,0 +1,72 @@
+<form clrForm [formGroup]="form">
+  <clr-radio-container clrInline>
+    <label class="clr-required-mark">{{ 'CHOOSE_PLATFORM' }}</label>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="platform" value="CLOUDIAN" [formControl]="form.controls.platform" />
+      <label>{{ 'CLOUDIAN' }}</label>
+    </clr-radio-wrapper>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="platform" value="ECS" [formControl]="form.controls.platform" />
+      <label>{{ 'ECS' }}</label>
+    </clr-radio-wrapper>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="platform" value="AMAZON" [formControl]="form.controls.platform" />
+      <label>{{ 'AMAZON' }}</label>
+    </clr-radio-wrapper>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="platform" value="OSIS" [formControl]="form.controls.platform" />
+      <label>{{ 'OSIS' }}</label>
+    </clr-radio-wrapper>
+    <clr-control-error> {{ 'REQUIRED' }} </clr-control-error>
+  </clr-radio-container>
+
+  <clr-input-container *ngIf="form.controls.s3?.controls?.url">
+    <label class="clr-required-mark">{{ 'S3_URL' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.s3?.controls?.url!" />
+    <clr-control-helper class="w-72">{{ 'S3_URL_DESC' }}</clr-control-helper>
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+  <clr-input-container *ngIf="form.controls.s3?.controls?.tlsCertChain">
+    <label class="clr-required-mark">{{ 'S3_CERTIFICATE' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.s3?.controls?.tlsCertChain!" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container *ngIf="form.controls.iam?.controls?.url">
+    <label class="clr-required-mark">{{ 'IAM_URL' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.iam?.controls?.url!" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+  <clr-input-container *ngIf="form.controls.iam?.controls?.tlsCertChain">
+    <label class="clr-required-mark">{{ 'IAM_CERTIFICATE' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.iam?.controls?.tlsCertChain!" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container *ngIf="form.controls.console?.controls?.url">
+    <label class="clr-required-mark">{{ 'CONSOLE_URL' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.console?.controls?.url!" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container *ngIf="form.controls.admin?.controls?.url">
+    <label class="clr-required-mark">{{ 'ADMIN_URL' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.admin?.controls?.url!" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+  <clr-input-container *ngIf="form.controls.admin?.controls?.tlsCertChain">
+    <label class="clr-required-mark">{{ 'ADMIN_CERTIFICATE' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.admin?.controls?.tlsCertChain!" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+  <clr-input-container *ngIf="form.controls.admin?.controls?.username">
+    <label class="clr-required-mark">{{ 'ADMIN_USERNAME' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.admin?.controls?.username!" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+  <clr-input-container *ngIf="form.controls.admin?.controls?.password">
+    <label class="clr-required-mark">{{ 'ADMIN_PASSWORD' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.admin?.controls?.password!" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+</form>

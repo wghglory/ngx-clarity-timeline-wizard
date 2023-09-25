@@ -1,0 +1,51 @@
+<form clrForm [formGroup]="form">
+  <clr-radio-container>
+    <label class="clr-required-mark">{{ 'CONFIGURE_TYPE' }}</label>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="configType" value="CONNECTION" [formControl]="form.controls.database.controls.configType" />
+      <label>{{ 'SELECT_POSTGRES_HA_IN_DATA_SOLUTIONS' }}</label>
+    </clr-radio-wrapper>
+    <clr-radio-wrapper>
+      <input type="radio" clrRadio name="configType" value="DSE" [formControl]="form.controls.database.controls.configType" />
+      <label>{{ 'SPECIFY_AN_EXISTING_POSTGRES_INSTANCE' }}</label>
+    </clr-radio-wrapper>
+    <clr-control-error> {{ 'REQUIRED' }} </clr-control-error>
+  </clr-radio-container>
+
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'DB_HOSTNAME' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.database.controls.hostname" />
+    <clr-control-helper class="w-72">{{ 'DB_HOSTNAME_DESC' }}</clr-control-helper>
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'PORT' }}</label>
+    <input class="w-72" clrInput type="number" [formControl]="form.controls.database.controls.port" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'DB_NAME' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.database.controls.dbName" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'USERNAME' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.database.controls.username" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'PASSWORD' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.database.controls.password" />
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+
+  <clr-input-container>
+    <label class="clr-required-mark">{{ 'CERTIFICATE' }}</label>
+    <input class="w-72" clrInput type="text" [formControl]="form.controls.database.controls.tlsCACert" />
+    <clr-control-helper class="w-72">{{ 'DB_CERTIFICATE_DESC' }}</clr-control-helper>
+    <clr-control-error>{{ 'REQUIRED' }}</clr-control-error>
+  </clr-input-container>
+</form>

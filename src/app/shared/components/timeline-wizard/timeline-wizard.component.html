@@ -1,0 +1,28 @@
+<clr-timeline class="min-h-[7rem]">
+  <clr-timeline-step *ngFor="let step of steps()" [clrState]="step.state">
+    <clr-timeline-step-header>{{ step.header }}</clr-timeline-step-header>
+    <clr-timeline-step-title>{{ step.title }}</clr-timeline-step-title>
+    <clr-timeline-step-description [class.text-red-500]="step.state === 'error'">
+      {{ step.description }}
+    </clr-timeline-step-description>
+  </clr-timeline-step>
+</clr-timeline>
+
+<div class="p-6 pt-2">
+  <ng-template #container></ng-template>
+
+  <div class="py-9">
+    <button class="btn btn-outline" [disabled]="isFirstStep()" (click)="previousStep()">
+      {{ 'PREVIOUS' }}
+    </button>
+    <button
+      class="btn"
+      [ngClass]="isLastStep() ? 'btn-success' : 'btn-primary'"
+      [clrLoading]="(next$ | async)?.loading === true"
+      [disabled]="currentStepFormInvalid"
+      (click)="nextStep()"
+    >
+      {{ isLastStep() ? 'CONFIRM' : 'NEXT' }}
+    </button>
+  </div>
+</div>

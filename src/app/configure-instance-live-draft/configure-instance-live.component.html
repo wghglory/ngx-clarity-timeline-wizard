@@ -1,0 +1,25 @@
+<div class="content-area">
+  <h2>{{ 'CONFIGURE_DEPLOYMENT' }}</h2>
+
+  <app-timeline-wizard-live>
+    <clr-timeline>
+      <clr-timeline-step *ngFor="let step of timelineSteps" [clrState]="step.state">
+        <clr-timeline-step-header>{{ step.header }}</clr-timeline-step-header>
+        <clr-timeline-step-title>{{ step.title }}</clr-timeline-step-title>
+        <clr-timeline-step-description [class.text-red-500]="step.state === 'error'">
+          {{ step.description }}
+        </clr-timeline-step-description>
+      </clr-timeline-step>
+    </clr-timeline>
+
+    <app-timeline-content>
+      <app-configure-database-form appTimelineContent />
+    </app-timeline-content>
+    <app-timeline-content>
+      <app-configure-service-form appTimelineContent />
+    </app-timeline-content>
+    <app-timeline-content>
+      <app-configure-review-form appTimelineContent />
+    </app-timeline-content>
+  </app-timeline-wizard-live>
+</div>
